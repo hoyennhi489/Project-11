@@ -8,6 +8,8 @@ function App() {
   const handleAddBook = () => {
     if (title.trim()) {
       setBooks([...books, { title, author }]);
+      setTitle('');
+      setAuthor('');
     }
   };
 
@@ -20,16 +22,19 @@ function App() {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
+
       <input
         type="text"
         placeholder="Author"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       />
+
       <button onClick={handleAddBook}>Add Book</button>
+
       <ul>
         {books.map((book, index) => (
-          <li key={index}>{book.title} by {book.title}</li>
+          <li key={index}>{book.title} by {book.author}</li>
         ))}
       </ul>
     </div>
