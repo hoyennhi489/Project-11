@@ -6,16 +6,27 @@ function App() {
   const [author, setAuthor] = useState('');
 
   const handleAddBook = () => {
-    if (title.trim()) {
-      setBooks([...books, { title, author }]);
+    if (title.trim() && author.trim()) {
+      const newBook = {
+        id: Date.now(),
+        title: title.trim(),
+        author: author.trim()
+      };
+
+      setBooks([...books, newBook]);
       setTitle('');
       setAuthor('');
     }
   };
 
+  const handleDelete = (id) => {
+    setBooks(books.filter((book) => book.id !== id));
+  };
+
   return (
     <div>
       <h1>Favorite Books List</h1>
+
       <input
         type="text"
         placeholder="Book Title"
@@ -34,7 +45,13 @@ function App() {
 
       <ul>
         {books.map((book, index) => (
-          <li key={index}>{book.title} by {book.author}</li>
+          <li key={book.id}>
+            {index + 1}. {book.title} by {book.author}
+
+            <button onClick={() => handleDelete(book.id)}>
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
     </div>

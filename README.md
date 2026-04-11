@@ -17,3 +17,24 @@ From this task, I learned:
 * How small mistakes can directly affect user experience
 
 This was a small improvement, but it helped me better understand how React handles state and rendering.
+
+---
+
+### Learning Journal – Day 2 (Adding Delete Feature & Item Order)
+
+Today, I continued improving my Book List application by adding a delete feature and displaying the order of each book.
+
+Previously, the app only allowed adding books, which made it incomplete and less practical. I implemented a delete function that allows users to remove a book from the list. To do this, I used the `filter()` method to update the state by removing the selected item.
+
+I also learned that using the array index as a key is not a good practice. To fix this, I added a unique `id` for each book using `Date.now()`. This helps React correctly track each item and prevents potential rendering issues.
+
+Additionally, I improved the UI by displaying the order number for each book (1, 2, 3...). This makes the list clearer and easier to follow.
+
+From this task, I learned:
+
+* How to remove items from state using `filter()`
+* Why unique keys are important in React lists
+* The risks of using index as a key
+* How small UI improvements can enhance user experience
+
+After these changes, the application feels more complete and behaves more reliably.
